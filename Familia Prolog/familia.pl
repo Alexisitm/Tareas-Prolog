@@ -11,5 +11,4 @@ padrede(juan,julio). #predicados binarios
 padrede(juan, jose).
 madrede(luisa,maria).
 #abuelo
-abuelo(X,Y):-padrede(X,W),padrede(W,Y).  #, es un AND ; es un OR
-#trace
+abuelo(X,Y):-padrede(X,W),padrede(W,Y).  
