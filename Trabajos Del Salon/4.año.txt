@@ -1,0 +1,4 @@
+   4. Para determinar si un año es bisiesto o no debe de cumplir las
+   siguiente regla: Ser divisible entre 4 y no divisible entre 100 o
+   bien divisible entre 400.  Escriba un programa que pida como entrada
+   el año e imprima si el año es bisiesto o no.ble.
