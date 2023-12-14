@@ -1,4 +1,4 @@
-% Nombre: 
+% Nombre: Luis Alexis Cortes Cortez
 % Materia: Prolog
 eliza :-
     writeln('Hola, soy Eliza, tu chatbot.'),
@@ -63,8 +63,8 @@ template([conoces, a, los, s(_), '?'], [flagsin7], [3]).
 template([conoces, el, album, s(_)], [flagsin8], [3]).
 template([son, s(_), y, s(_), todos, albums, de, los, beatles, '?'], [flagsin9], [1, 3]).
 template([s(_), y, s(_), pertenecen, a, los, beatles, '?'], [flagsin9], [0, 2]).
-template([son, s(_), s(_), y, s(_), todos, albums, de, los, beatles, '?'], [flagsin10], [1, 3]).
-template([s(_), s(_), y, s(_), pertenecen, a, los, beatles, '?'], [flagsin10], [0, 2]).
+template([son, s(_), s(_), y, s(_), todos, albums, de, los, beatles, '?'], [flagsin10], [1, 2, 4]).
+template([s(_), s(_), y, s(_), pertenecen, a, los, beatles, '?'], [flagsin10], [0, 1, 3]).
 template([son, s(_), y, s(_), todos, integrantes, de, los, beatles, '?'], [flagsin11], [1, 3]).
 
 %bonus
@@ -369,6 +369,9 @@ obtener_especialistas(Enfermedad, Especialistas) :-
 
 elizaKnow4(X, R):- obtener_sintomas(X, S), R = ['Los', sintomas, de, X, son, S].
 elizaKnow4(X, R):- \+obtener_sintomas(X, _), R = ['No', se, de, los, sintomas, de, X].
+
+obtener_sintomas(Enfermedad, Sintomas) :-
+    findall(Sintoma, sintomade(Sintoma, Enfermedad), Sintomas).
 % termina
 
 % lo que eliza sabe de dos sintomas
