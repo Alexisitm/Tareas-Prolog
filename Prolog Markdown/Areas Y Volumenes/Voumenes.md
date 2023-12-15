@@ -6,7 +6,7 @@ Lisp, un lenguaje de programación funcional, se extiende más allá del cálcul
 
 Lisp es especialmente adecuado para abordar problemas matemáticos tridimensionales, como el cálculo de volúmenes. Su capacidad para manejar expresiones simbólicas y estructuras de datos complejas lo convierte en una elección idónea para enfrentar desafíos geométricos más avanzados.
 
-#Volumen cilindro
+# Volumen cilindro
 ```lisp
 (defvar *volumencilindro* (lambda (radio altura)  (* pi (* radio radio) altura)))
 ```
@@ -20,7 +20,7 @@ Lisp es especialmente adecuado para abordar problemas matemáticos tridimensiona
    (format t "El resultado es ~,2F unidades cubicas" (funcall *volumencilindro* radio altura))
 )
 ```
-#Volumen cilindro Hueco
+# Volumen cilindro Hueco
 ```lisp
 (defvar *volumencilindrohueco* (lambda (radio-exterior radio-interior altura)   (* pi altura (- (expt radio-exterior 2) (expt radio-interior 2)))))
 ```
@@ -35,7 +35,7 @@ Lisp es especialmente adecuado para abordar problemas matemáticos tridimensiona
    (format t "El resultado es ~,2F unidades cubicas" (funcall *volumencilindrohueco* radio-exterior radio-interior altura))
 )
 ```
-#Volumen Cono
+# Volumen Cono
 ```lisp
 (defvar *volumencono* (lambda (radio altura)   (* (/ 1 3) pi (* (expt radio 2) altura))))
 ```
@@ -50,7 +50,7 @@ Lisp es especialmente adecuado para abordar problemas matemáticos tridimensiona
 )
 ```
 
-#Volumen Cono Truncado
+# Volumen Cono Truncado
 ```lisp
 (defvar *volumenconotruncado* (lambda (radio-base-grande radio-base-pequena altura)   (* (/ pi 3) altura (+ (expt radio-base-grande 2) (* radio-base-grande radio-base-pequena) (expt radio-base-pequena 2)))))
 ```
@@ -67,7 +67,7 @@ Lisp es especialmente adecuado para abordar problemas matemáticos tridimensiona
 )
 ```
 
-#Volumen Cubo
+# Volumen Cubo
 ```lisp
 (defvar *volumencubo* (lambda (lado) (* lado lado lado)))
 ```
@@ -80,7 +80,7 @@ Lisp es especialmente adecuado para abordar problemas matemáticos tridimensiona
 )
 ```
 
-#Volumen Esfera
+# Volumen Esfera
 ```lisp
 (defvar *volumenesfera* (lambda (radio)   (* (/ 4 3) pi (expt radio 3))))
 ```
@@ -92,7 +92,7 @@ Lisp es especialmente adecuado para abordar problemas matemáticos tridimensiona
 )
 ```
 
-#Volumen Paralelepipedo
+# Volumen Paralelepipedo
 ```lisp
 (defvar *volumenparalelepipedo* (lambda (area-base altura)   (* area-base altura)))
 ```
@@ -107,7 +107,7 @@ Lisp es especialmente adecuado para abordar problemas matemáticos tridimensiona
 )
 ```
 
-#Volumen Piramide Cuadrada
+# Volumen Piramide Cuadrada
 ```lisp
 (defvar *volumenpiramidecuadrada* (lambda (lado-base altura)   (/ (* (expt lado-base 2) altura) 3)))
 ```
@@ -121,7 +121,7 @@ Lisp es especialmente adecuado para abordar problemas matemáticos tridimensiona
 )
 ```
 
-#Volumen Prisma Rectangular
+# Volumen Prisma Rectangular
 ```lisp
 (defvar *volumenprismarectangular* (lambda (area-base altura) (* area-base altura)))
 ```
@@ -134,7 +134,7 @@ Lisp es especialmente adecuado para abordar problemas matemáticos tridimensiona
    (format t "El resultado es ~,2F unidades cubicas" (funcall *volumenprismarectangular* area-base altura))
 )
 ```
-#Volumen Tetraedro
+# Volumen Tetraedro
 ```lisp
 (defvar *volumentetraedro* (lambda (lado)   (/ (* (expt lado 3) (sqrt 2)) 12)))
 ```

@@ -21,7 +21,7 @@ Lisp, con su enfoque en la manipulación simbólica y su capacidad para represen
 )
 ```
 
-#Area Cuadrado
+# Area Cuadrado
 ```lisp
 (defvar *areacuadrado* (lambda (num1 num2) (* num1 num2)))
 ```
@@ -35,7 +35,7 @@ Lisp, con su enfoque en la manipulación simbólica y su capacidad para represen
 )
 ```
 
-#Area Elipse
+# Area Elipse
 ```lisp
 (defvar *areaelipse* (lambda (radio-mayor radio-menor)   (* pi radio-mayor radio-menor)))
 ```
@@ -49,7 +49,7 @@ Lisp, con su enfoque en la manipulación simbólica y su capacidad para represen
    (format t "El resultado es ~,2F unidades cuadradas" (funcall *areaelipse* radio-mayor radio-menor))
 )
 ```
-#Area Hexagono
+# Area Hexagono
 ```lisp
 (defvar *areahexagono* (lambda (perimetro apotema)  (/ (* perimetro apotema) 2)))
 ```
@@ -62,7 +62,7 @@ Lisp, con su enfoque en la manipulación simbólica y su capacidad para represen
    (format t "El resultado es ~,2F unidades cuadradas" (funcall *areahexagono* perimetro apotema))
 )
 ```
-#Area Paralelogramo
+# Area Paralelogramo
 ```lisp
 (defvar *areaparalelogramo* (lambda (base altura) (* base altura)))
 ```
@@ -75,7 +75,7 @@ Lisp, con su enfoque en la manipulación simbólica y su capacidad para represen
    (format t "El resultado es ~A unidades cuadradas" (funcall *areaparalelogramo* base altura))
 )
 ```
-#Area Pentagono
+# Area Pentagono
 ```lisp
 (defvar *areapentagono* (lambda (perimetro apotema)  (/ (* perimetro apotema) 2)))
 ```
@@ -88,7 +88,7 @@ Lisp, con su enfoque en la manipulación simbólica y su capacidad para represen
    (format t "El resultado es ~,2F unidades cuadradas" (funcall *areapentagono* perimetro apotema))
 )
 ```
-#Area Rectangulo
+# Area Rectangulo
 ```lisp
 (defvar *arearectangulo* (lambda (base altura) (* base altura)))
 ```
@@ -101,7 +101,7 @@ Lisp, con su enfoque en la manipulación simbólica y su capacidad para represen
    (format t "El resultado es ~A unidades cuadradas" (funcall *arearectangulo* base altura))
 )
 ```
-#Area Rombo
+# Area Rombo
 ```lisp
 (defvar *arearombo* (lambda (diagonal-mayor diagonal-menor)  (/ (* diagonal-mayor diagonal-menor) 2)))
 ```
@@ -114,7 +114,7 @@ Lisp, con su enfoque en la manipulación simbólica y su capacidad para represen
    (format t "El resultado es ~,2F unidades cuadradas" (funcall *arearombo* diagonal-mayor diagonal-menor))
 )
 ```
-#Area Trapecio
+# Area Trapecio
 ```lisp
 (defvar *calcular-area-trapecio*
   (lambda (base-mayor base-menor altura)
@@ -134,7 +134,7 @@ Lisp, con su enfoque en la manipulación simbólica y su capacidad para represen
 (funcall *pedir-datos-y-calcular-area*)  
 ```
 
-#Area Triangulo
+# Area Triangulo
 ```lisp
 (defvar *areatriangulo* (lambda (base altura) (/ (* base altura) 2)))
 ```

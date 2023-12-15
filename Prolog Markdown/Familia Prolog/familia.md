@@ -1,5 +1,5 @@
-## Este es un Programa simple en Prolog para entender el uso de hechos, predicados y funciones
-```prolog
+# Este es un codigo simple en prolog que nos permite entender como es que trabaja
+## Ejercicio de Familiares
 #padres y nombre
 padre(juan). #predicados unarios
 padre(antonio).
@@ -14,4 +14,3 @@ padrede(juan, jose).
 madrede(luisa,maria).
 #abuelo
 abuelo(X,Y):-padrede(X,W),padrede(W,Y).  
-```
