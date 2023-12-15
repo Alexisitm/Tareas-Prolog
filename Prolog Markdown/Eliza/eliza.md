@@ -1,4 +1,9 @@
-# ELIZA
+
+# Desarrollo de Eliza - Pancreatitis y Beatles
+## Nombre: Luis Alexis Cortes Cortez ~~~~  Materia: Prolog ~~~~ 
+## Fecha de Entrega 14/12/2023 Presencial
+
+# ELIZA 
 
 ELIZA es un programa de procesamiento del lenguaje natural que simula una conversación terapéutica. Fue desarrollado en la década de 1960 por Joseph Weizenbaum, un informático alemán-estadounidense. ELIZA es conocida como uno de los primeros "chatbots" y es considerada un hito en la historia de la inteligencia artificial.
 
@@ -16,19 +21,24 @@ Usuario: Estoy sintiéndome muy estresado en el trabajo.
 
 ELIZA: Parece que estás sintiendo mucho estrés en el trabajo. ¿Puedes contarme más sobre eso?
 
-## Legado
 
-Aunque ELIZA era limitada en su capacidad para comprender el lenguaje y ofrecer respuestas significativas, su enfoque innovador influyó en futuros desarrollos en inteligencia artificial y chatbots. Hoy en día, sistemas más avanzados han evolucionado, pero ELIZA sigue siendo un hito importante en la historia de la interacción hombre-máquina.
+## Funcionalidad Principal
 
+1. **Saludo Inicial:**
+   - El programa comienza saludando al usuario como Eliza y pidiendo al usuario que ingrese una petición.
+   - La entrada se lee con `readln(Input)`.
 
-% Nombre: Luis Alexis Cortes Cortez
-% Materia: Prolog
+```prolog
 eliza :-
     writeln('Hola, soy Eliza, tu chatbot.'),
     writeln('Por favor, ingresa tu peticion. Usa minusculas y un punto al final:'),
     readln(Input),
     eliza(Input), !.
-    
+```
+
+2. **Respuestas de Despedida:**
+    - Se proporcionan respuestas de despedida específicas si el usuario ingresa ciertas frases, como 'bye' o 'adios'. El programa se cierra después de estas respuestas.
+```prolog
 eliza(Input) :-
     Input == ['bye'],
     writeln('Adios, espero haberte ayudado.'), !.
@@ -38,7 +48,12 @@ eliza(Input) :-
 eliza(Input) :-
     Input == ['Adios', '.'],
     writeln('Te vas por la sombrita .'), !.
+```
 
+3. **Conversación Basada en Plantillas:**
+   - Utiliza plantillas para estimular respuestas específicas.
+
+```prolog
 eliza(Input) :-
     template(Stim, Resp, IndStim),
     match(Stim, Input),
@@ -46,7 +61,13 @@ eliza(Input) :-
     writeln(R),
     readln(Input1),
     eliza(Input1), !.
+```
 
+4.  **Plantillas de Respuestas Generales**
+- Se definen plantillas para responder a diversas frases o patrones de entrada. Cada plantilla tiene un estímulo (`Stim`), una respuesta (`Resp`), y un índice del estímulo (`IndStim`).
+- Aqui los temas de las plantillas se dividen lo que le gusta eliza, lo que hace y lo que es.
+- Posteriormente se generaron plantillas para responder sobre dos temas en especifico, la enfermedad pancreatitis y albums e integrantes de los Beatles
+```prolog
 template([hola, mi, nombre, es, s(_), '.'], ['hola', 0, 'como', estas, '?'], [4]).
 template([mi, nombre, es, s(_), '.'], ['hola', 'como', estas, 0, '?'], [3]).
 template([hola, ',', mi, nombre, es, s(_), '.'], ['hola', 0, 'como', estas, '?'], [6]).
@@ -98,7 +119,10 @@ template([yo, tengo, s(_), con, s(_), '.'], ['Tu', tienes, que, lidear, con, tu,
 template([profa, s(_), _], ['No', yo, no, puedo, ayudarte, ',', soy, solo, una, maquina], []). 
 template([cuenta, me, un, s(_), _], ['No', yo, no, puedo, ',', yo, soy, mala, en, eso], []). 
 template(_, ['porfa', explicame, un, poco, mas, '.'], []).
-
+```
+  5. **Hechos y reglas de eliza**
+   -En este apartado se definio los hechos de la pancreatitis y de los albums de los beatles
+   ```prolog
 % Pancreatitis
 sintomade(dolor_abdominal,pancreatitis).
 sintomade(nauseas,pancreatitis).
@@ -369,7 +393,9 @@ albumde2(please_please_me, beatles_for_sale, magical_mystery_tour).
 albumde2(please_please_me, beatles_for_sale, white_album).
 albumde2(please_please_me, beatles_for_sale, yellow_submarine).
 albumde2(please_please_me, beatles_for_sale, abbey_road).
+```
 
+```prolog
 % lo que eliza sabe de un sintomas
 elizaKnow(X, R):- enfermedad(X), R = ['Ve', con, un, especialista, en, X, para, que, te, ayude, a, tratar, tu, enfermedad].
 elizaKnow(X, R):- \+enfermedad(X), R = ['No', se, nada, sobre, X].
@@ -440,7 +466,8 @@ elizaLikes3(X, ['No', a, mi, no, me, gusta, el, X]):- \+likes(X).
 % La
 elizaLikes4(X, ['Si', me, gusta, la, X]):- likes(X).
 elizaLikes4(X, ['No', a, mi, no, me, gusta, la, X]):- \+likes(X).
-
+```
+```prolog
 likes(manzanas).
 likes(ponis).
 likes(zombies).
@@ -469,7 +496,9 @@ is0(amable).
 is0(deliz).
 is0(redundante).
 is0(bot).
+```
 
+```prolog
 match([],[]).
 match([], _):- true.
 
@@ -658,3 +687,4 @@ replace0([I|Index], Input, N, Resp, R):-
 	select(N, Resp, Atom, R1),
 	N1 is N + 1,
 	replace0(Index, Input, N1, R1, R),!.
+```
